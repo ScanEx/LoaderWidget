@@ -1,0 +1,110 @@
+.loader-widget, .loader-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.loader-widget {
+    overflow: visible;
+    padding-top: 4em;
+    height: 0;
+    width: 4em;
+    visibility: hidden;
+    z-index: 3002;
+}
+.loader-icon {    
+    height: 0;
+    width: 0;
+    box-sizing: border-box;
+    border: 0 solid #2196F3;
+    border-radius: 50%;
+    -webkit-animation: loader-icon 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+    -moz-animation: loader-icon 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation: loader-icon 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);    
+}
+.loader-widget-overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 3001;
+    background-color: black;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+@-webkit-keyframes loader-icon {
+    0% {
+        height: 0;
+        width: 0;
+        background-color: #2196F3;
+    }
+    29% {
+        background-color: #2196F3;
+    }
+    30% {
+        height: 4em;
+        width: 4em;
+        background-color: transparent;
+        border-width: 1em;
+        opacity: 1;
+    }
+    100% {
+        height: 4em;
+        width: 4em;
+        border-width: 0;
+        opacity: 0;
+        background-color: transparent;
+    }
+}
+@-moz-keyframes loader-icon {
+    0% {
+        height: 0;
+        width: 0;
+        background-color: #2196F3;
+    }
+    29% {
+        background-color: #2196F3;
+    }
+    30% {
+        height: 4em;
+        width: 4em;
+        background-color: transparent;
+        border-width: 1em;
+        opacity: 1;
+    }
+    100% {
+        height: 4em;
+        width: 4em;
+        border-width: 0;
+        opacity: 0;
+        background-color: transparent;
+    }
+}
+@keyframes loader-icon {
+    0% {
+        height: 0;
+        width: 0;
+        background-color: #2196F3;
+    }
+    29% {
+        background-color: #2196F3;
+    }
+    30% {
+        height: 4em;
+        width: 4em;
+        background-color: transparent;
+        border-width: 1em;
+        opacity: 1;
+    }
+    100% {
+        height: 4em;
+        width: 4em;
+        border-width: 0;
+        opacity: 0;
+        background-color: transparent;
+    }
+}

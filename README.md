@@ -1,0 +1,2 @@
+# LoaderWidget
+Loading notification widget

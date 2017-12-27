@@ -16,7 +16,7 @@
     visibility: hidden;
     z-index: 3002;
 }
-.loader-icon {    
+.loader-animated {
     height: 0;
     width: 0;
     box-sizing: border-box;

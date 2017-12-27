@@ -25,11 +25,13 @@ class LoaderWidget {
         e.stopPropagation();
     }
     show() {        
-        this._ovl.style.display = 'block';             
+        this._ovl.style.display = 'block';
+        this._container.querySelector('.loader-icon').classList.add('loader-animated');
         this._container.style.visibility = 'visible';        
     }
     hide() {        
-        this._ovl.style.display = 'none';        
+        this._ovl.style.display = 'none';
+        this._container.querySelector('.loader-icon').classList.remove('loader-animated');
         this._container.style.visibility = 'hidden';        
     }
 }

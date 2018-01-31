@@ -9,12 +9,29 @@
     transform: translate(-50%, -50%);
 }
 .loader-widget {
+    text-align: center;
     overflow: visible;
     padding-top: 4em;
-    height: 0;
-    width: 4em;
+    height: 0;    
     visibility: hidden;
     z-index: 3002;
+}
+.loader-widget .loader-button {
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;    
+    color: #fff;
+    border: 1px solid #fff; 
+    cursor: pointer;    
+    text-align: center;
+    width: 100px;
+    padding: 9px;
+    margin-top: 20px;
+}
+.loader-widget .loader-button:hover {
+    background-color: #fff;
+    color: #313a3f;
 }
 .loader-animated {
     height: 0;

@@ -1,9 +1,8 @@
 import './LoaderWidget.css';
-import { Translations } from 'lib/Translations/src/Translations.js';
-import { EventTarget } from 'lib/EventTarget/src/EventTarget.js';
+import { Translations } from 'scanex-translations';
+import EventTarget from 'scanex-event-target';
 
-window.Catalog.translations = window.Catalog.translations || new Translations();
-let T = window.Catalog.translations;
+let T = Translations;
 
 class LoaderWidget extends EventTarget {
     constructor () {
@@ -49,4 +48,4 @@ class LoaderWidget extends EventTarget {
     }
 }
 
-export { LoaderWidget };
+export default LoaderWidget;

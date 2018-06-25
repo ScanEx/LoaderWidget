@@ -1,0 +1,39 @@
+{
+  "name": "scanex-loader-widget",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "clean": "del /F /S /Q dist",
+    "build": "npm run clean && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Scanex/LoaderWidget.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Scanex/LoaderWidget/issues"
+  },
+  "homepage": "https://github.com/Scanex/LoaderWidget#readme",
+  "dependencies": {
+    "npm": "^6.1.0",
+    "scanex-event-target": "git+https://github.com/Scanex/EventTarget.git",
+    "scanex-translations": "git+https://github.com/Scanex/Translations.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "flow-bin": "^0.70.0",
+    "image-loader": "0.0.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
+  }
+}

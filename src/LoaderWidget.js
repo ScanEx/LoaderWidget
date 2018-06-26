@@ -1,5 +1,5 @@
 import './LoaderWidget.css';
-import { Translations } from 'scanex-translations';
+import Translations from 'scanex-translations';
 import EventTarget from 'scanex-event-target';
 
 let T = Translations;
@@ -24,8 +24,7 @@ class LoaderWidget extends EventTarget {
             this._ovl.addEventListener('click', this._stopPropagation);
         }
         this._container.querySelector('.loader-button').addEventListener('click', e => {
-            this.hide();
-            
+            this.hide();            
             let event = document.createEvent('Event');
             event.initEvent('cancel', false, false);
             this.dispatchEvent(event);

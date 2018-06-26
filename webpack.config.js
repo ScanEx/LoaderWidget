@@ -8,7 +8,7 @@ module.exports = {
     libraryTarget: 'umd2',
     libraryExport: 'default',
   },  
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   mode: 'development',  
   module: {
     rules: [

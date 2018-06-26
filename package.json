@@ -5,7 +5,8 @@
   "main": "dist/bundle.js",
   "scripts": {
     "clean": "del /F /S /Q dist",
-    "build": "npm run clean && webpack"
+    "build": "npm run clean && webpack",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",

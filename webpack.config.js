@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: './src/LoaderWidget.js',
@@ -15,8 +16,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader'},
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          "css-loader"
         ]
       },
       {
@@ -33,13 +36,15 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              publicPath: 'dist'
-            }  
+            loader: 'file-loader',        
           }
         ]
       }
     ]
-  }
+  },
+  plugins: [   
+    new MiniCssExtractPlugin({
+      filename: "bundle.css",
+    })
+  ]
 };

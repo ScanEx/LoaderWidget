@@ -8,20 +8,20 @@ export default [
   {
     input: 'src/LoaderWidget.js',
     output: { 
-        file: pkg.main,
+        file: pkg.module,
         format: 'cjs',
     },
     plugins: [
-        resolve({ jsnext: true, main: true, module: false, browser: false }),
+        resolve({ jsnext: true, main: false, module: true, browser: false }),
         commonjs(),
         css({minified: false, dest: 'dist/scanex-loader-widget.css'}),
-        babel({ exclude: 'node_modules/**'}),
+        babel(),
     ],
  },
  {
     input: 'src/LoaderWidget.js',
     output: { 
-        file: pkg.module,
+        file: pkg.main,
         format: 'esm',
     },
     external: ['scanex-event-target', 'scanex-translations'],

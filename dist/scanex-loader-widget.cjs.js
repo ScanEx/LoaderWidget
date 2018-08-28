@@ -8,75 +8,12 @@ function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
-var scanexTranslations_cjs = createCommonjsModule(function (module) {
-
-function unwrapExports$$1 (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-}
-
-function createCommonjsModule$$1(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
-
-var scanexObjectExtensions_cjs = createCommonjsModule$$1(function (module, exports) {
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
 } : function (obj) {
   return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
 };
 
-var copy = function copy(source) {
-    switch (typeof source === 'undefined' ? 'undefined' : _typeof(source)) {
-        case 'number':
-        case 'string':
-        case 'function':
-        default:
-            return source;
-        case 'object':
-            if (source === null) {
-                return null;
-            } else if (Array.isArray(source)) {
-                return source.map(function (item) {
-                    return copy(item);
-                });
-            } else if (source instanceof Date) {
-                return source;
-            } else {
-                return Object.keys(source).reduce(function (a, k) {
-                    a[k] = copy(source[k]);
-                    return a;
-                }, {});
-            }
-    }
-};
-
-var extend = function extend(target, source) {
-    if (target === source) {
-        return target;
-    } else {
-        return Object.keys(source).reduce(function (a, k) {
-            var value = source[k];
-            if (_typeof(a[k]) === 'object' && k in a) {
-                a[k] = extend(a[k], value);
-            } else {
-                a[k] = copy(value);
-            }
-            return a;
-        }, copy(target));
-    }
-};
-
-exports.copy = copy;
-exports.extend = extend;
-});
-
-unwrapExports$$1(scanexObjectExtensions_cjs);
-var scanexObjectExtensions_cjs_1 = scanexObjectExtensions_cjs.copy;
-var scanexObjectExtensions_cjs_2 = scanexObjectExtensions_cjs.extend;
-
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -101,89 +38,212 @@ var createClass = function () {
   };
 }();
 
-var DEFAULT_LANGUAGE = 'rus';
+var inherits = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
 
-var Translations = function () {
-    function Translations() {
-        classCallCheck(this, Translations);
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
 
-        this._hash = {};
+var possibleConstructorReturn = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+
+var scanexTranslations_cjs = createCommonjsModule(function (module) {
+
+    function unwrapExports$$1(x) {
+        return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
     }
 
-    createClass(Translations, [{
-        key: 'setLanguage',
-        value: function setLanguage(lang) {
-            this._language = lang;
+    function createCommonjsModule$$1(fn, module) {
+        return module = { exports: {} }, fn(module, module.exports), module.exports;
+    }
+
+    var _typeof$$1 = typeof Symbol === "function" && _typeof(Symbol.iterator) === "symbol" ? function (obj) {
+        return typeof obj === 'undefined' ? 'undefined' : _typeof(obj);
+    } : function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === 'undefined' ? 'undefined' : _typeof(obj);
+    };
+
+    var classCallCheck$$1 = function classCallCheck$$1(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
         }
-    }, {
-        key: 'getLanguage',
-        value: function getLanguage() {
-            return window.language || this._language || DEFAULT_LANGUAGE;
-        }
-    }, {
-        key: 'addText',
-        value: function addText(lang, tran) {
-            this._hash[lang] = scanexObjectExtensions_cjs_2(this._hash[lang] || {}, tran);
-            return this;
-        }
-    }, {
-        key: 'getText',
-        value: function getText(key) {
-            if (key && typeof key === 'string') {
-                var locale = this._hash[this.getLanguage()];
-                if (locale) {
-                    return eval('locale.' + key);
-                }
+    };
+
+    var createClass$$1 = function () {
+        function defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+                var descriptor = props[i];
+                descriptor.enumerable = descriptor.enumerable || false;
+                descriptor.configurable = true;
+                if ("value" in descriptor) descriptor.writable = true;
+                Object.defineProperty(target, descriptor.key, descriptor);
             }
-            return null;
         }
-    }]);
-    return Translations;
-}();
 
-window.Scanex = window.Scanex || {};
-window.Scanex.Translations = window.Scanex.Translations || {};
-window.Scanex.translations = window.Scanex.translations || new Translations();
+        return function (Constructor, protoProps, staticProps) {
+            if (protoProps) defineProperties(Constructor.prototype, protoProps);
+            if (staticProps) defineProperties(Constructor, staticProps);
+            return Constructor;
+        };
+    }();
 
-var index = window.Scanex.translations;
+    var scanexObjectExtensions_cjs = createCommonjsModule$$1(function (module, exports) {
 
-module.exports = index;
+        Object.defineProperty(exports, '__esModule', { value: true });
+
+        var _typeof$$1 = typeof Symbol === "function" && _typeof$$1(Symbol.iterator) === "symbol" ? function (obj) {
+            return typeof obj === 'undefined' ? 'undefined' : _typeof$$1(obj);
+        } : function (obj) {
+            return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === 'undefined' ? 'undefined' : _typeof$$1(obj);
+        };
+
+        var copy = function copy(source) {
+            switch (typeof source === 'undefined' ? 'undefined' : _typeof$$1(source)) {
+                case 'number':
+                case 'string':
+                case 'function':
+                default:
+                    return source;
+                case 'object':
+                    if (source === null) {
+                        return null;
+                    } else if (Array.isArray(source)) {
+                        return source.map(function (item) {
+                            return copy(item);
+                        });
+                    } else if (source instanceof Date) {
+                        return source;
+                    } else {
+                        return Object.keys(source).reduce(function (a, k) {
+                            a[k] = copy(source[k]);
+                            return a;
+                        }, {});
+                    }
+            }
+        };
+
+        var extend = function extend(target, source) {
+            if (target === source) {
+                return target;
+            } else {
+                return Object.keys(source).reduce(function (a, k) {
+                    var value = source[k];
+                    if (_typeof$$1(a[k]) === 'object' && k in a) {
+                        a[k] = extend(a[k], value);
+                    } else {
+                        a[k] = copy(value);
+                    }
+                    return a;
+                }, copy(target));
+            }
+        };
+
+        exports.copy = copy;
+        exports.extend = extend;
+    });
+
+    unwrapExports$$1(scanexObjectExtensions_cjs);
+    var scanexObjectExtensions_cjs_1 = scanexObjectExtensions_cjs.copy;
+    var scanexObjectExtensions_cjs_2 = scanexObjectExtensions_cjs.extend;
+
+    var DEFAULT_LANGUAGE = 'rus';
+
+    var Translations = function () {
+        function Translations() {
+            classCallCheck$$1(this, Translations);
+
+            this._hash = {};
+        }
+
+        createClass$$1(Translations, [{
+            key: 'setLanguage',
+            value: function setLanguage(lang) {
+                this._language = lang;
+            }
+        }, {
+            key: 'getLanguage',
+            value: function getLanguage() {
+                return window.language || this._language || DEFAULT_LANGUAGE;
+            }
+        }, {
+            key: 'addText',
+            value: function addText(lang, tran) {
+                this._hash[lang] = scanexObjectExtensions_cjs_2(this._hash[lang] || {}, tran);
+                return this;
+            }
+        }, {
+            key: 'getText',
+            value: function getText(key) {
+                if (key && typeof key === 'string') {
+                    var locale = this._hash[this.getLanguage()];
+                    if (locale) {
+                        return eval('locale.' + key);
+                    }
+                }
+                return null;
+            }
+        }]);
+        return Translations;
+    }();
+
+    window.Scanex = window.Scanex || {};
+    window.Scanex.Translations = window.Scanex.Translations || {};
+    window.Scanex.translations = window.Scanex.translations || new Translations();
+
+    var index = window.Scanex.translations;
+
+    module.exports = index;
 });
 
 var Translations = unwrapExports(scanexTranslations_cjs);
 
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
+var classCallCheck$1 = function classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
 };
 
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
+var createClass$1 = function () {
+    function defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];
+            descriptor.enumerable = descriptor.enumerable || false;
+            descriptor.configurable = true;
+            if ("value" in descriptor) descriptor.writable = true;
+            Object.defineProperty(target, descriptor.key, descriptor);
+        }
     }
-  }
 
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
+    return function (Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);
+        if (staticProps) defineProperties(Constructor, staticProps);
+        return Constructor;
+    };
 }();
 
 var EventTarget = function () {
     function EventTarget() {
-        classCallCheck(this, EventTarget);
+        classCallCheck$1(this, EventTarget);
 
         this.listeners = {};
     }
 
-    createClass(EventTarget, [{
+    createClass$1(EventTarget, [{
         key: 'addEventListener',
         value: function addEventListener(type, callback) {
             if (!(type in this.listeners)) {
@@ -228,61 +288,13 @@ var EventTarget = function () {
 
 var scanexEventTarget_cjs = EventTarget;
 
-var classCallCheck$1 = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-var createClass$1 = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-
-var inherits = function (subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-};
-
-var possibleConstructorReturn = function (self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return call && (typeof call === "object" || typeof call === "function") ? call : self;
-};
-
 var T = Translations;
 
 var LoaderWidget = function (_EventTarget) {
     inherits(LoaderWidget, _EventTarget);
 
     function LoaderWidget() {
-        classCallCheck$1(this, LoaderWidget);
+        classCallCheck(this, LoaderWidget);
 
         var _this = possibleConstructorReturn(this, (LoaderWidget.__proto__ || Object.getPrototypeOf(LoaderWidget)).call(this));
 
@@ -313,7 +325,7 @@ var LoaderWidget = function (_EventTarget) {
         return _this;
     }
 
-    createClass$1(LoaderWidget, [{
+    createClass(LoaderWidget, [{
         key: '_stopPropagation',
         value: function _stopPropagation(e) {
             e.stopPropagation();

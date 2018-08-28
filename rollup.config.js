@@ -24,8 +24,8 @@ export default [
         file: pkg.main,
         format: 'esm',
     },
-    external: ['scanex-event-target', 'scanex-translations'],
     plugins: [
+        resolve({ jsnext: true, main: true, module: false, browser: false }),
         css({minified: false, dest: 'dist/scanex-loader-widget.css'}),
     ],
  },

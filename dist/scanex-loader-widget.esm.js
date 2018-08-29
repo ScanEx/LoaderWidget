@@ -62,8 +62,10 @@ class Translations {
         if(key && typeof key === 'string') {
             let locale = this._hash[this.getLanguage()];
             if (locale) {
-                return eval(`locale.${key}`);
-            }            
+                return key
+                    .split('.')
+                    .reduce((a, k) => a[k], locale);
+            }         
         }
         return null;
     }

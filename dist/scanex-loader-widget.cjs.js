@@ -192,7 +192,9 @@ var scanexTranslations_cjs = createCommonjsModule(function (module) {
                 if (key && typeof key === 'string') {
                     var locale = this._hash[this.getLanguage()];
                     if (locale) {
-                        return eval('locale.' + key);
+                        return key.split('.').reduce(function (a, k) {
+                            return a[k];
+                        }, locale);
                     }
                 }
                 return null;

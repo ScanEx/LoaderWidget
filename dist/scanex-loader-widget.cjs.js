@@ -1,13 +1,5 @@
 'use strict';
 
-function unwrapExports (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-}
-
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
 } : function (obj) {
@@ -62,190 +54,103 @@ var possibleConstructorReturn = function (self, call) {
   return call && (typeof call === "object" || typeof call === "function") ? call : self;
 };
 
-var scanexTranslations_cjs = createCommonjsModule(function (module) {
-
-    function unwrapExports$$1(x) {
-        return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-    }
-
-    function createCommonjsModule$$1(fn, module) {
-        return module = { exports: {} }, fn(module, module.exports), module.exports;
-    }
-
-    var _typeof$$1 = typeof Symbol === "function" && _typeof(Symbol.iterator) === "symbol" ? function (obj) {
-        return typeof obj === 'undefined' ? 'undefined' : _typeof(obj);
-    } : function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === 'undefined' ? 'undefined' : _typeof(obj);
-    };
-
-    var classCallCheck$$1 = function classCallCheck$$1(instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    };
-
-    var createClass$$1 = function () {
-        function defineProperties(target, props) {
-            for (var i = 0; i < props.length; i++) {
-                var descriptor = props[i];
-                descriptor.enumerable = descriptor.enumerable || false;
-                descriptor.configurable = true;
-                if ("value" in descriptor) descriptor.writable = true;
-                Object.defineProperty(target, descriptor.key, descriptor);
-            }
-        }
-
-        return function (Constructor, protoProps, staticProps) {
-            if (protoProps) defineProperties(Constructor.prototype, protoProps);
-            if (staticProps) defineProperties(Constructor, staticProps);
-            return Constructor;
-        };
-    }();
-
-    var scanexObjectExtensions_cjs = createCommonjsModule$$1(function (module, exports) {
-
-        Object.defineProperty(exports, '__esModule', { value: true });
-
-        var _typeof$$1 = typeof Symbol === "function" && _typeof$$1(Symbol.iterator) === "symbol" ? function (obj) {
-            return typeof obj === 'undefined' ? 'undefined' : _typeof$$1(obj);
-        } : function (obj) {
-            return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === 'undefined' ? 'undefined' : _typeof$$1(obj);
-        };
-
-        var copy = function copy(source) {
-            switch (typeof source === 'undefined' ? 'undefined' : _typeof$$1(source)) {
-                case 'number':
-                case 'string':
-                case 'function':
-                default:
-                    return source;
-                case 'object':
-                    if (source === null) {
-                        return null;
-                    } else if (Array.isArray(source)) {
-                        return source.map(function (item) {
-                            return copy(item);
-                        });
-                    } else if (source instanceof Date) {
-                        return source;
-                    } else {
-                        return Object.keys(source).reduce(function (a, k) {
-                            a[k] = copy(source[k]);
-                            return a;
-                        }, {});
-                    }
-            }
-        };
-
-        var extend = function extend(target, source) {
-            if (target === source) {
-                return target;
+var copy = function copy(source) {
+    switch (typeof source === 'undefined' ? 'undefined' : _typeof(source)) {
+        case 'number':
+        case 'string':
+        case 'function':
+        default:
+            return source;
+        case 'object':
+            if (source === null) {
+                return null;
+            } else if (Array.isArray(source)) {
+                return source.map(function (item) {
+                    return copy(item);
+                });
+            } else if (source instanceof Date) {
+                return source;
             } else {
                 return Object.keys(source).reduce(function (a, k) {
-                    var value = source[k];
-                    if (_typeof$$1(a[k]) === 'object' && k in a) {
-                        a[k] = extend(a[k], value);
-                    } else {
-                        a[k] = copy(value);
-                    }
+                    a[k] = copy(source[k]);
                     return a;
-                }, copy(target));
+                }, {});
             }
-        };
-
-        exports.copy = copy;
-        exports.extend = extend;
-    });
-
-    unwrapExports$$1(scanexObjectExtensions_cjs);
-    var scanexObjectExtensions_cjs_1 = scanexObjectExtensions_cjs.copy;
-    var scanexObjectExtensions_cjs_2 = scanexObjectExtensions_cjs.extend;
-
-    var DEFAULT_LANGUAGE = 'rus';
-
-    var Translations = function () {
-        function Translations() {
-            classCallCheck$$1(this, Translations);
-
-            this._hash = {};
-        }
-
-        createClass$$1(Translations, [{
-            key: 'setLanguage',
-            value: function setLanguage(lang) {
-                this._language = lang;
-            }
-        }, {
-            key: 'getLanguage',
-            value: function getLanguage() {
-                return window.language || this._language || DEFAULT_LANGUAGE;
-            }
-        }, {
-            key: 'addText',
-            value: function addText(lang, tran) {
-                this._hash[lang] = scanexObjectExtensions_cjs_2(this._hash[lang] || {}, tran);
-                return this;
-            }
-        }, {
-            key: 'getText',
-            value: function getText(key) {
-                if (key && typeof key === 'string') {
-                    var locale = this._hash[this.getLanguage()];
-                    if (locale) {
-                        return key.split('.').reduce(function (a, k) {
-                            return a[k];
-                        }, locale);
-                    }
-                }
-                return null;
-            }
-        }]);
-        return Translations;
-    }();
-
-    window.Scanex = window.Scanex || {};
-    window.Scanex.Translations = window.Scanex.Translations || {};
-    window.Scanex.translations = window.Scanex.translations || new Translations();
-
-    var index = window.Scanex.translations;
-
-    module.exports = index;
-});
-
-var Translations = unwrapExports(scanexTranslations_cjs);
-
-var classCallCheck$1 = function classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
     }
 };
 
-var createClass$1 = function () {
-    function defineProperties(target, props) {
-        for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i];
-            descriptor.enumerable = descriptor.enumerable || false;
-            descriptor.configurable = true;
-            if ("value" in descriptor) descriptor.writable = true;
-            Object.defineProperty(target, descriptor.key, descriptor);
-        }
+var extend = function extend(target, source) {
+    if (target === source) {
+        return target;
+    } else {
+        return Object.keys(source).reduce(function (a, k) {
+            var value = source[k];
+            if (_typeof(a[k]) === 'object' && k in a) {
+                a[k] = extend(a[k], value);
+            } else {
+                a[k] = copy(value);
+            }
+            return a;
+        }, copy(target));
+    }
+};
+
+var DEFAULT_LANGUAGE = 'rus';
+
+var Translations = function () {
+    function Translations() {
+        classCallCheck(this, Translations);
+
+        this._hash = {};
     }
 
-    return function (Constructor, protoProps, staticProps) {
-        if (protoProps) defineProperties(Constructor.prototype, protoProps);
-        if (staticProps) defineProperties(Constructor, staticProps);
-        return Constructor;
-    };
+    createClass(Translations, [{
+        key: 'setLanguage',
+        value: function setLanguage(lang) {
+            this._language = lang;
+        }
+    }, {
+        key: 'getLanguage',
+        value: function getLanguage() {
+            return window.language || this._language || DEFAULT_LANGUAGE;
+        }
+    }, {
+        key: 'addText',
+        value: function addText(lang, tran) {
+            this._hash[lang] = extend(this._hash[lang] || {}, tran);
+            return this;
+        }
+    }, {
+        key: 'getText',
+        value: function getText(key) {
+            if (key && typeof key === 'string') {
+                var locale = this._hash[this.getLanguage()];
+                if (locale) {
+                    return key.split('.').reduce(function (a, k) {
+                        return a[k];
+                    }, locale);
+                }
+            }
+            return null;
+        }
+    }]);
+    return Translations;
 }();
+
+window.Scanex = window.Scanex || {};
+window.Scanex.Translations = window.Scanex.Translations || {};
+window.Scanex.translations = window.Scanex.translations || new Translations();
+
+var Translations$1 = window.Scanex.translations;
 
 var EventTarget = function () {
     function EventTarget() {
-        classCallCheck$1(this, EventTarget);
+        classCallCheck(this, EventTarget);
 
         this.listeners = {};
     }
 
-    createClass$1(EventTarget, [{
+    createClass(EventTarget, [{
         key: 'addEventListener',
         value: function addEventListener(type, callback) {
             if (!(type in this.listeners)) {
@@ -288,9 +193,7 @@ var EventTarget = function () {
     return EventTarget;
 }();
 
-var scanexEventTarget_cjs = EventTarget;
-
-var T = Translations;
+var T = Translations$1;
 
 var LoaderWidget = function (_EventTarget) {
     inherits(LoaderWidget, _EventTarget);
@@ -348,6 +251,6 @@ var LoaderWidget = function (_EventTarget) {
         }
     }]);
     return LoaderWidget;
-}(scanexEventTarget_cjs);
+}(EventTarget);
 
 module.exports = LoaderWidget;

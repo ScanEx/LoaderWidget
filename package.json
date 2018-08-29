@@ -2,7 +2,7 @@
   "name": "scanex-loader-widget",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/scanex-loader-widget.esm.js",
+  "main": "src/LoaderWidget.js",
   "module": "dist/scanex-loader-widget.cjs.js",
   "scripts": {
     "clean": "del /F /S /Q dist",

@@ -111,7 +111,7 @@ function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
-var scanexTranslations_cjs = createCommonjsModule(function (module) {
+var scanexTranslations = createCommonjsModule(function (module) {
 
 var commonjsGlobal$1 = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof commonjsGlobal !== 'undefined' ? commonjsGlobal : typeof self !== 'undefined' ? self : {};
 
@@ -1223,7 +1223,7 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-var scanexObjectExtensions_cjs = createCommonjsModule(function (module, exports) {
+var scanexObjectExtensions = createCommonjsModule(function (module, exports) {
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
@@ -2106,9 +2106,9 @@ exports.extend = extend;
 
 });
 
-unwrapExports(scanexObjectExtensions_cjs);
-var scanexObjectExtensions_cjs_1 = scanexObjectExtensions_cjs.copy;
-var scanexObjectExtensions_cjs_2 = scanexObjectExtensions_cjs.extend;
+unwrapExports(scanexObjectExtensions);
+var scanexObjectExtensions_1 = scanexObjectExtensions.copy;
+var scanexObjectExtensions_2 = scanexObjectExtensions.extend;
 
 var DEFAULT_LANGUAGE = 'rus';
 
@@ -2132,7 +2132,7 @@ var Translations = /*#__PURE__*/function () {
   }, {
     key: "addText",
     value: function addText(lang, tran) {
-      this._hash[lang] = scanexObjectExtensions_cjs_2(this._hash[lang] || {}, tran);
+      this._hash[lang] = scanexObjectExtensions_2(this._hash[lang] || {}, tran);
       return this;
     }
   }, {
@@ -2164,7 +2164,7 @@ module.exports = index;
 
 });
 
-var Translations = unwrapExports(scanexTranslations_cjs);
+var Translations = unwrapExports(scanexTranslations);
 
 var commonjsGlobal$1 = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof commonjsGlobal !== 'undefined' ? commonjsGlobal : typeof self !== 'undefined' ? self : {};
 
@@ -2954,7 +2954,7 @@ var EventTarget = /*#__PURE__*/function () {
   return EventTarget;
 }();
 
-var scanexEventTarget_cjs = EventTarget;
+var scanexEventTarget = EventTarget;
 
 var T = Translations;
 
@@ -3033,6 +3033,7 @@ var LoaderWidget = /*#__PURE__*/function (_EventTarget) {
   }]);
 
   return LoaderWidget;
-}(scanexEventTarget_cjs);
+}(scanexEventTarget);
 
 module.exports = LoaderWidget;
+//# sourceMappingURL=scanex-loader-widget.js.map

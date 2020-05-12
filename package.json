@@ -2,8 +2,7 @@
   "name": "scanex-loader-widget",
   "version": "1.0.0",
   "description": "",
-  "main": "src/LoaderWidget.js",
-  "module": "dist/scanex-loader-widget.cjs.js",
+  "main": "dist/scanex-loader-widget.js",
   "scripts": {
     "build": "rollup -c"
   },

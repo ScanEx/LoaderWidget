@@ -1,5 +1,5 @@
 {
-  "name": "scanex-loader-widget",
+  "name": "@scanex/loader-widget",
   "version": "1.0.0",
   "description": "",
   "main": "dist/scanex-loader-widget.js",
@@ -17,13 +17,13 @@
   },
   "homepage": "https://github.com/Scanex/LoaderWidget#readme",
   "dependencies": {
-    "scanex-event-target": "git+https://github.com/Scanex/EventTarget.git",
-    "scanex-translations": "git+https://github.com/Scanex/Translations.git"
+    "@scanex/event-target": "git+https://github.com/Scanex/EventTarget.git",
+    "@scanex/translations": "git+https://github.com/Scanex/Translations.git"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-json": "^4.0.3",
     "@rollup/plugin-node-resolve": "^7.1.3",

@@ -1,6 +1,6 @@
 import './LoaderWidget.css';
-import Translations from 'scanex-translations';
-import EventTarget from 'scanex-event-target';
+import Translations from '@scanex/translations';
+import EventTarget from '@scanex/event-target';
 
 let T = Translations;
 

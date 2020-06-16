@@ -18,7 +18,7 @@ export default {
         babel({                
            extensions: ['.js', '.mjs'],
            exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'],
-           include: ['src/**']
+           include: ['src/**','node_modules/**']
         }),
     ],
  };

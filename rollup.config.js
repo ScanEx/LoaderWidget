@@ -5,16 +5,16 @@ import commonjs from '@rollup/plugin-commonjs';
 import css from 'rollup-plugin-css-porter';
 
 export default {
-    input: 'src/LoaderWidget.js',
+    input: pkg.module,
     output: { 
         file: pkg.main,
         format: 'cjs',
         sourcemap: true,
     },
     plugins: [
-        resolve(),
+        resolve({ dedupe: ['core-js'] }),
         commonjs(),
-        css({minified: false, dest: 'dist/scanex-loader-widget.css'}),
+        css({dest: 'dist/scanex-loader-widget.css', minified: false}),
         babel({                
            extensions: ['.js', '.mjs'],
            exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'],
